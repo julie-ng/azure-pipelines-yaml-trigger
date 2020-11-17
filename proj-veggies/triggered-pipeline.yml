@@ -2,6 +2,8 @@
 # In YAML `name` is the build numbering format
 name: $(BuildID)
 
+trigger: none # disable CI triggers
+
 resources:
   pipelines:
   - pipeline: supermarket-resource
