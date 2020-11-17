@@ -4,7 +4,7 @@ name: $(BuildID)
 
 resources:
   pipelines:
-  - pipeline: supermarket-resource
+  - pipeline: marketresources
     source: supermarket-trigger-pipeline
     trigger:
       branches:
@@ -16,4 +16,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - bash: echo '⚡️ This Pipeline only runs when triggered by the supermarket 🛒'
+  - bash: |
+      echo '⚡️ This Pipeline only runs when triggered by the supermarket 🛒'
+      echo $(resources.pipeline.myresourcevars.runName)
