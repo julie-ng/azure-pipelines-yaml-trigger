@@ -2,6 +2,8 @@
 # In YAML `name` is the build numbering format
 name: $(BuildID)
 
+trigger: none # disable CI triggers
+
 resources:
   pipelines:
   - pipeline: supermarket-resource
@@ -9,6 +11,7 @@ resources:
     trigger:
       branches:
       - supermarket # only supermarket branch will trigger this pipeline
+                    # note: when THIS pipeline runs, it will run with context of the `supermarket` branch.
 
 pr: none
 
