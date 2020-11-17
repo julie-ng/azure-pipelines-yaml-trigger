@@ -1,0 +1,24 @@
+# Pipeline names must be changed in the Azure DevOps UI
+# In YAML `name` is the build numbering format
+name: $(BuildID)
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+    - dev
+    - feat/*
+
+  # only required if you are using a monorepo
+  paths:
+    include:
+      - 'supermarket/*'
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - bash: echo 'Hello World from the Supermarket 🛒'

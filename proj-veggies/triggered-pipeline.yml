@@ -1,0 +1,19 @@
+# Pipeline names must be changed in the Azure DevOps UI
+# In YAML `name` is the build numbering format
+name: $(BuildID)
+
+resources:
+  pipelines:
+  - pipeline: trigger
+    source: supermarket-trigger-pipeline
+    trigger:
+      branches:
+      - supermarket # only supermarket branch will trigger this pipeline
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - bash: echo '⚡️ This Pipeline only runs when triggered by the supermarket 🛒'

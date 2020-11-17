@@ -1,0 +1,29 @@
+name: $(BuildID)
+
+# NORMAL CI TRIGGER
+# -----------------
+# This is a normal pipeline that is triggered by
+# changes in this repo/folder on specific git branches
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+    - feat/*
+
+  # Ignore this
+  # For this demo only because of monorepo
+  paths:
+    include:
+      - 'proj-veggies/*'
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - bash: |
+      echo 'Hello World from Veggies 🍅🥕🥦'
+      echo 'This pipeline always runs'
