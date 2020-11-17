@@ -4,7 +4,7 @@ name: $(BuildID)
 
 resources:
   pipelines:
-  - pipeline: trigger
+  - pipeline: supermarket-resource
     source: supermarket-trigger-pipeline
     trigger:
       branches:
